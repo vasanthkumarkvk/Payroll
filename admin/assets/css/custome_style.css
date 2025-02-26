@@ -1,0 +1,446 @@
+.auth .brand-logo img {
+  width: 55%;
+}
+
+.auth .auth-form-light {
+  background: #010412;
+}
+
+div#allDetails {
+  overflow-x: scroll;
+}
+
+div#employeeDetails {
+  overflow-x: scroll;
+}
+
+div#contractorDetails {
+  overflow-x: scroll;
+}
+
+div#dismissedDetails {
+  overflow-x: scroll;
+}
+
+.overall_buttons {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+}
+
+.add_button_div button,
+.export_button button {
+  border-radius: 5px;
+  border: 1px solid #000000;
+  background-color: #1f3bb3;
+  color: white;
+  padding: 5px 12px;
+  font-size: 13px;
+}
+
+.add_button_div button:hover,
+.export_button button:hover {
+  background-color: white;
+  color: #1f3bb3;
+}
+
+/* runpay view-details modal */
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 99999999;
+  left: 0;
+  top: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 20px;
+  width: 100vh;
+  border-radius: 10px;
+  position: relative;
+  margin: 10% auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.salary-detail p {
+  font-size: 16px;
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.salary-detail strong {
+  color: #f0f0f0;
+}
+.input-group label {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.input-group input[type="month"] {
+  padding: 10px;
+  background-color: #87a2db;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 5px;
+}
+
+h2 {
+  color: #1900ff;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff6f61;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.close-btn:hover {
+  background-color: #ff4f41;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* add-people styling people page */
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
+  color: #fff;
+}
+
+/* Company Onboarding Section */
+.CompanyOnboarding--progress-section {
+  background-color: #2b2b2b;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.CompanyOnboarding--progress-section h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar input {
+  flex: 1; /* Allow input to take available space */
+  margin-right: 0; /* Remove space between input and button */
+  padding: 10px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  border-radius: 4px; /* Optional: Rounded corners */
+}
+
+.search-bar button {
+  margin-right: 20px; /* Remove margin to eliminate gap */
+  padding: 10px 20px; /* Adjust padding for the button */
+  background-color: #007bff; /* Example button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Optional: Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 10%;
+}
+
+/* .search-bar input {
+  padding: 10px;
+    width: 60%;
+  background-color: rgb(191 216 243);
+  border: 2px solid #000000;
+  color: #fff;
+  height: 100%;
+}
+
+.search-bar button {
+  background-color: #4a90e2;
+  border: 2px solid black;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px 21px;
+  height: 100%;
+  border-collapse: collapse;
+} */
+
+/* Add Employee Button Specific Styling */
+.add-employee-btn {
+
+  background-color: #1884fc;
+  border: 2px solid transparent;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 8px;
+  height: 43px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+.a {
+  text-decoration: none;
+}
+.add-employee-btn:hover,
+.add-employee-btn:focus {
+  border-color: #fc0606; /* White border on hover */
+  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.8); /* Glowing border effect */
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.add-employee-btn:active {
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 1); /* Stronger glow on click */
+  border-color: #fff; /* Keep the white border on click */
+  text-decoration: none;
+}
+
+.add-employee-btn i {
+  margin-left: 10px; /* Space between text and icon */
+}
+
+/* Hover effect for all buttons */
+.search-bar button:hover {
+  background-color: #357abd;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input {
+    width: 100%; /* Full width on smaller screens */
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 100%; /* Full width for buttons as well */
+  }
+  .add-employee-btn {
+    width: 100%; /* Full width on smaller screens */
+    height: auto; /* Adjust height to content */
+    margin: 10px 0; /* Reduced margin for mobile */
+  }
+}
+p {
+  text-decoration: none;
+}
+/* Tab Menu */
+.tab-menu .nav-tabs {
+  display: flex;
+  gap: 15px;
+}
+
+.tab-menu .nav-tabs .nav-item .nav-link {
+  color: #000000;
+  padding: 10px 20px;
+  background-color: #036de0;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.tab-menu .nav-tabs .nav-link.active {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+/* Employee List Table */
+.employee-list table {
+  width: 100%;
+  background-color: #fff;
+  /* border-collapse: collapse; */
+  /* border-radius: 8px; */
+  margin-top: 20px;
+  /* color: #000000; */
+}
+
+.employee-list th,
+.employee-list td {
+  padding: 12px;
+  border-bottom: 1px solid transparent;
+}
+
+.employee-list th {
+  background-color: #bfd8f3;
+  color: black;
+}
+
+.employee-list td {
+  color: #000000;
+}
+
+.employee-list tr:last-child td {
+  border-bottom: none;
+}
+
+.main-panel {
+  background-color: #ffffff; /* Change this to your desired color */
+}
+
+.home-tab .tab-content {
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+  border: none;
+}
+
+h4,
+h5 {
+  color: #000000;
+}
+
+label {
+  color: #007bff;
+}
+
+/* advance salary page  */
+
+/* peoplw page button styling to update  */
+.styled-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.styled-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.styled-button:focus {
+  outline: none; /* Remove outline on focus */
+  box-shadow: 0 0 5px #4caf50; /* Add a subtle glow effect on focus */
+}
+
+
+
+/* Button styling */
+.year-button {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+
+/* Hover effect */
+.year-button:hover {
+  background-color: #20c997; /* Darker green on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+
+
+}
+
+/* Focus outline */
+.year-button:focus {
+  outline: 2px solid #333; /* Dark outline when focused */
+  outline-offset: 2px;
+}
+
+/* Adding a subtle shadow */
+.year-button {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Active (pressed) effect */
+.year-button:active {
+  transform: scale(0.98); /* Slightly scale down on press */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on press */
+
+}
+
+.year-btn {
+  display: flex;
+  gap: 5px;
+  margin-left: 529px;
+}
+
+.year-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.update_salary-button {
+  background-color: #20c997; /* Blue background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; /* Flex display for icon alignment */
+  align-items: center; /* Center the icon and text vertically */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transitions */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.update_salary-button:hover {
+  background-color: #007bff; /* Darker green on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Focus outline */
+.update_salary-button:focus {
+  outline: 2px solid #333; /* Dark outline when focused */
+  outline-offset: 2px;
+}
+
+/* Active (pressed) effect */
+.update_salary-button:active {
+  transform: scale(0.98); /* Slightly scale down on press */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on press */
+}
+

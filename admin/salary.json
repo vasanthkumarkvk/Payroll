@@ -1,0 +1,334 @@
+{
+    "users": [
+      {
+        "email": "angalaeswari@vsmglobaltechnologies.com",
+        "name": "Angalaeswari",
+        "id": "1",
+        "joining_date": "04-07-2022",
+        "designation": "It analyst",
+        "resigned_date": "09-12-2022",
+        "salary_details": [
+          {
+            "month": 8,
+            "year": 2022,
+            "gross": 8000,
+            "salary": 8900
+          },
+          {
+            "month": 9,
+            "year": 2022,
+            "gross":  8000,
+            "salary":0
+          },
+          {
+            "month": 10,
+            "year": 2022,
+            "gross":  8000,
+            "salary": 5161
+          },
+          {
+            "month": 11,
+            "year": 2022,
+            "gross":  8000,
+            "salary": 7733
+          },
+          {
+            "month": 12,
+            "year": 2022,
+            "gross":  8000,
+            "salary": 2900
+          }
+        ]
+      },
+          {
+        "email": "latha@vsmglobaltechnologies.com",
+        "name": "Latha Gokulnath",
+        "id": "2",
+        "joining_date": "01-02-2023",
+        "designation": "Senior specialist",
+        "resigned_date": "08-08-2023",
+        "salary_details": [
+          {
+            "month": 2,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 10750
+          },
+          {
+            "month": 3,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 10750
+          },
+          {
+            "month": 4,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 12250
+          },
+          {
+            "month": 5,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 0
+          },
+          {
+            "month": 6,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 4700
+          },
+          {
+            "month": 7,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 10177
+          },
+          {
+            "month": 8,
+            "year": 2023,
+            "gross": 10000,
+            "salary": 1613
+          }
+        ]
+      },
+       {
+        "email": "suganya@vsmglobaltechnologies.com",
+        "name": "Suganya",
+        "id": "3",
+        "joining_date": "21-06-2023",
+        "designation": "Business development management specialist",
+        "resigned_date": "12-07-2023",
+        "salary_details": [
+          {
+            "month": 6,
+            "year": 2023,
+            "gross": 8000,
+            "salary": 3200
+          }
+        ]
+      },
+       {
+        "email": "anitha@vsmglobaltechnologies.com",
+        "name": "Anitha",
+        "id": "4",
+        "joining_date": "08-06-2023",
+        "designation": "Marketing Manager",
+        "resigned_date": "08-07-2023",
+        "salary_details": [
+          {
+            "month": 1,
+            "year": 2023,
+            "gross": 18000,
+            "salary": 13200
+          }
+        ]
+      },
+       {
+        "email": "muthulakshmi@vsmglobaltechnologies.com",
+        "name": "Muthulakshmi",
+        "id": "5",
+        "joining_date": "04-10-2023",
+        "designation": "Developer",
+        "resigned_date": "05-01-2024",
+        "salary_details": [
+          {
+            "month": 10,
+            "year": 2023,
+            "gross": 12000,
+            "salary": 11613
+          },
+          {
+            "month": 11,
+            "year": 2023,
+            "gross": 12000,
+            "salary": 5613
+          },
+          {
+            "month": 12,
+            "year": 2023,
+            "gross": 12000,
+            "salary": 1160
+          }
+        ]
+      },
+      {
+        "email": "jeyaeswarivivek@vsmglobaltechnologies.com",
+        "name": "Jeya Eswari Vivek",
+        "id": "6",
+        "joining_date": "17-08-2023",
+        "designation": "Business development management specialist",
+        "resigned_date": "05-02-2024",
+        "salary_details": [
+          {
+            "month": 8,
+            "year": 2023,
+            "gross": 9000,
+            "salary": 7840
+          },
+          {
+            "month": 9,
+            "year": 2023,
+            "gross": 9000,
+            "salary": 9000
+          },
+          {
+            "month": 10,
+            "year": 2023,
+            "gross": 9000,
+            "salary": 8758
+          },
+          {
+            "month": 11,
+            "year": 2023,
+            "gross": 9000,
+            "salary": 11000
+          },
+          {
+            "month": 12,
+            "year": 2023,
+            "gross": 9000,
+            "salary": 9419
+          },
+          {
+            "month": 1,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 9500
+          }
+          
+        ]
+      },
+      {
+        "email": "jeevitha@vsmglobaltechnologies.com",
+        "name": "Jeevitha",
+        "id": "7",
+        "joining_date": "01-12-2023",
+        "designation": "Graphic Designer",
+        "resigned_date": "29-06-2024",
+        "salary_details": [
+          {
+            "month": 12,
+            "year": 2023,
+            "gross": 15000,
+            "salary": 10161
+          },
+          {
+            "month": 1,
+            "year": 2024,
+            "gross": 15000,
+            "salary": 11581
+          },
+          {
+            "month": 2,
+            "year": 2024,
+            "gross": 15000,
+            "salary": 13966
+          },
+          {
+            "month": 3,
+            "year": 2024,
+            "gross": 15000,
+            "salary": 16008
+          },
+          {
+            "month": 4,
+            "year": 2024,
+            "gross": 15000,
+            "salary": 15000
+          },
+          {
+            "month": 5,
+            "year": 2024,
+            "gross": 15000,
+            "salary": 12581
+          },
+          {
+              "month": 6,
+            "year": 2024,
+            "gross": 15000,
+            "salary": 13000
+          }
+        ]
+      },
+      {
+        "email": "ajaykumar@vsmglobaltechnologies.com",
+        "name": "Ajay Kumar",
+        "id": "8",
+        "joining_date": "06-01-2024",
+        "designation": "Developer",
+        "resigned_date": "01-06-2024",
+        "salary_details": [
+          {
+            "month": 1,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 4000
+          },
+          {
+            "month": 2,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 8378
+          },
+          {
+            "month": 3,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 7548
+          },
+          {
+            "month": 4,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 7500
+          },
+          {
+            "month": 5,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 6968
+          }
+        ]
+      },
+      {
+        "email": "dhanalakshmi@vsmglobaltechnologies.com",
+        "name": "Dhanalakshmi",
+        "id": "9",
+        "joining_date": "01-05-2024",
+        "designation": "contract-support",
+        "resigned_date": "",
+        "salary_details": [
+          {
+            "month": 5,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 6300
+          },
+          {
+            "month": 6,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 4850
+          }
+        ]
+      },
+      {
+        "email": "neenaps@vsmglobaltechnologies.com",
+        "name": "Neena PS",
+        "id": "10",
+        "joining_date": "01-09-2024",
+        "designation": "contract- support",
+        "resigned_date": "",
+        "salary_details": [
+          {
+            "month": 9,
+            "year": 2024,
+            "gross": 9000,
+            "salary": 2200
+          }
+          
+        ]
+      }
+    ]
+  }

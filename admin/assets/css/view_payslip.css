@@ -1,0 +1,289 @@
+    /* General Layout */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f5f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        color: black;
+        font-size: bold;
+    }
+
+    .button-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .download-btn {
+        background-color: #1f3bb3;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        /* width: 100px;
+            height: 100px; */
+        justify-content: center;
+        cursor: pointer;
+        outline: none;
+        transition: transform 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+    }
+
+    .animatee .svg-path {
+        animation: draw 0.5s ease forwards;
+    }
+
+    .hidden_ani {
+        display: none;
+    }
+
+    @keyframes draw {
+        0% {
+            stroke-dasharray: 0, 100;
+            /* Start hidden */
+        }
+
+        100% {
+            stroke-dasharray: 100, 0;
+            /* Fully drawn */
+        }
+    }
+
+    .btn-r {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .download-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .circle {
+        width: 50px;
+        height: 50px;
+        fill: none;
+        stroke-width: 3px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transform: rotate(90deg);
+    }
+
+    .download-btn:hover .circle {
+        stroke: #45a049;
+    }
+
+    .icon {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 9px;
+        color: white;
+        /* padding-bottom: 36px; */
+        align-items: center;
+    }
+
+
+    /* Table Styling */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        margin-bottom: 20px;
+        max-width: 100%;
+        table-layout: fixed;
+        /* Makes the table more compact by limiting column width */
+        border: 1px solid #ddd;
+        overflow-x: scroll;
+        word-wrap: break-word;
+        /* Prevents overflowing text */
+
+    }
+
+    #salaryTable {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1em;
+        text-align: left;
+    }
+
+    #salaryTable th,
+    #salaryTable td {
+        padding: 6px 7px;
+        border: 1px solid #ddd;
+        text-align: left;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+
+    #salaryTable th {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #salaryTable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #salaryTable caption {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+
+
+    .content-wrapper {
+        padding: 0;
+    }
+
+    .table th,
+    .table td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+        text-overflow: ellipsis;
+        /* Adds "..." at the end of the text if it overflows */
+        white-space: nowrap;
+        /* Prevents text from wrapping */
+
+
+    }
+
+    .table th {
+        background-color: #f2f5f9;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    /* Hover effect for rows */
+    .table tbody tr:hover {
+        background-color: #e6f7ff;
+        cursor: pointer;
+    }
+
+    /* Excel-like grid lines and alignment */
+    .table th,
+    .table td {
+        border: 1px solid #ddd;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .back-btn {
+        background: #1F3BB3;
+        color: #ffffff;
+        width: 50px;
+        height: 50px;
+        border-radius: 30px;
+        margin: 20px;
+        border: none;
+
+    }
+
+    .table th:first-child,
+    .table td:first-child {
+        background-color: #f2f5f9;
+        font-weight: bold;
+        text-align: left;
+        padding-left: 15px;
+    }
+
+    .paymentStatusBtn {
+        padding: 6px 8px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #f44336;
+        /* Red for Unpaid */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        max-width: 60px;
+    }
+
+    .paymentStatusBtn.paid {
+        background-color: #4CAF50;
+        /* Green for Paid */
+    }
+
+    .paymentStatusBtn:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+        /* Slightly enlarge on hover */
+    }
+
+    .paymentStatusBtn:active {
+        transform: scale(0.95);
+        /* Slightly shrink on click */
+    }
+
+    @media (max-width: 1024px) {
+        .table {
+            font-size: 12px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px 10px;
+            /* Reduced padding for compact design */
+        }
+
+        .table th {
+            font-size: 14px;
+            /* Slightly smaller font size for mobile/tablets */
+        }
+    }
+
+    /* Responsive styling for mobile devices */
+    @media (max-width: 768px) {
+
+        .container {
+            padding: 5px;
+        }
+
+        .table {
+            width: 95%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x)* 0.5);
+            padding-left: calc(var(--bs-gutter-x)* 0.5);
+            /* margin-top: 16px; */
+            margin-left: 11px;
+            overflow-x: scroll;
+            padding: 0;
+
+        }
+
+
+    }
