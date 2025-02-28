@@ -33,7 +33,7 @@ if ($employee_email) {
     }
 }
 
-
+$normal_id= $employee_user_id;
 // Sanitize the employee_user_id
 $employee_user_id = preg_replace('/[^a-zA-Z0-9_]/', '', strtolower($employee_user_id));
 
@@ -42,12 +42,8 @@ $table_name = $employee_user_id . "_salary";
 // Fetch salary details for the matched employee_id and year
 $salary_details = [];
 if (isset($employee_user_id)) {
-    $sql = "SELECT `id`, `employee_id`, `month`, `year`, `advance_amount`, 
-                   `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`
-            FROM `$table_name` 
-            WHERE  `year` = ?";
+    $sql = "SELECT *FROM `$table_name` WHERE  `year` = ?";
     $stmt = $conn->prepare($sql);
-
     if ($stmt) {
         $stmt->bind_param("i",  $selected_year);
         $stmt->execute();
@@ -107,6 +103,7 @@ button#privious:hover{
                         <h2>
                             <span id="employeeName" style="color: red; font-weight: bold;">
                                 <?php echo $employee_name; ?>
+                                
                             </span>
                         </h2>
 
@@ -115,7 +112,7 @@ button#privious:hover{
                             <button id="privious" onclick="changeYear(<?php echo $selected_year - 1; ?>)">Previous Year</button>
                             <span style="font-size: 20px; font-weight: bold;"><?php echo $selected_year; ?></span>
                             <button id="next_year" onclick="changeYear(<?php echo $selected_year + 1; ?>)">Next Year</button>
-                            <button id="download-excel" style="padding:4px; margin:10px;" class="btn btn-success">Download Excel</button>
+                            <button id="download-pdf" data-id="<?php echo $normal_id; ?>" class="btn btn-danger">Download PDF</button>
 
                         </div>
 
@@ -170,16 +167,15 @@ button#privious:hover{
     </div>
 
     <?php include "footer_view.php"; ?>
-<script>
-    document.getElementById('download-excel').addEventListener('click', function() {
-    window.location.href = 'export_to_excel.php';
-});
 
+
+    <script>
+    document.getElementById('download-pdf').addEventListener('click', function() {
+        let normalId = this.getAttribute('data-id');
+        window.location.href = 'export_to_pdf.php?normal_id=' + encodeURIComponent(normalId);
+    });
 </script>
 
-<!-- <script>
-    window.onebeforeunload = () => true;
-</script> -->
 
 
     <script>
