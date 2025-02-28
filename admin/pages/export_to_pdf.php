@@ -2,17 +2,19 @@
 require 'vendor/autoload.php';
 require '../database.php';
 
-// Start output buffering to prevent errors
+// Start output buffering
 ob_start();
 
-// Get normal_id from URL and sanitize it
-if (!isset($_GET['normal_id']) || empty($_GET['normal_id'])) {
-    die("Invalid request: normal_id is required.");
+// Check if month and employee_id exist
+if (!isset($_GET['month']) || !isset($_GET['employee_id'])) {
+    die("Invalid request: Month and Employee ID are required.");
 }
 
-$normal_id = mysqli_real_escape_string($conn, $_GET['normal_id']); // Prevent SQL injection
+// Get and sanitize input
+$month = mysqli_real_escape_string($conn, $_GET['month']);
+$employee_id = mysqli_real_escape_string($conn, $_GET['employee_id']);
 
-// Create a new PDF instance
+// Create PDF instance
 $pdf = new TCPDF();
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Your Company');
@@ -36,16 +38,16 @@ $pdf->Cell(30, 8, 'Advance', 1, 0, 'C', true);
 $pdf->Cell(25, 8, 'EMI', 1, 0, 'C', true);
 $pdf->Cell(20, 8, 'Net Salary', 1, 1, 'C', true);
 
-// Fetch salary details for the given normal_id
-$query = "SELECT * FROM salary_details WHERE employee_id = ?";
+// Fetch filtered salary details
+$query = "SELECT * FROM salary_details WHERE month = ? AND employee_id = ?";
 $stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "s", $normal_id); // Use "s" because normal_id is a string
+mysqli_stmt_bind_param($stmt, "ss", $month, $employee_id); // Both values are strings
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 // Check if data exists
 if (mysqli_num_rows($result) == 0) {
-    die("No salary details found for this normal_id.");
+    die("No salary details found for this month and employee.");
 }
 
 // Table content

@@ -343,6 +343,28 @@ if ($advance_date) {
                 </td>
             <?php endforeach; ?>
         </tr>
+
+        
+        <tr>
+            <td class="text-center">Payslip</td>
+            <?php foreach ($months as $month): ?>
+                <td>
+                    <?php
+                    $payment_status = isset($salary_details[$month]) ? $salary_details[$month]['payment_status'] : null;
+                    $disabled = ($payment_status && $payment_status == 'paid') ? 'disabled' : '';
+                    $gross_salary = isset($salary_details[$month]) ? $salary_details[$month]['gross_salary'] : 0;
+                    $button_class = ($payment_status && $payment_status == 'paid') ? 'paid-btn' : 'unpaid-btn';
+                    ?>
+
+<button type="button" class="payslip-downlode btn btn-primary"  
+    data-month="<?= $month ?>" 
+    data-id="<?= $employee_user_id ?>">
+    <i class="fa fa-download" aria-hidden="true"></i>
+</button>
+
+                </td>
+            <?php endforeach; ?>
+        </tr>
     </tbody>
 </table>
 
@@ -368,6 +390,15 @@ if ($advance_date) {
         </div>
     </div>
 
+    <script>
+    document.querySelectorAll('.payslip-downlode').forEach(button => {
+        button.addEventListener('click', function() {
+            let month = this.getAttribute('data-month');
+            let employeeId = this.getAttribute('data-id');
+            window.location.href = 'export_to_pdf.php?month=' + encodeURIComponent(month) + '&employee_id=' + encodeURIComponent(employeeId);
+        });
+    });
+</script>
 
     <style>
         /* Style for 'Paid' buttons */

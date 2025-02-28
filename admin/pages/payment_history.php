@@ -112,7 +112,7 @@ button#privious:hover{
                             <button id="privious" onclick="changeYear(<?php echo $selected_year - 1; ?>)">Previous Year</button>
                             <span style="font-size: 20px; font-weight: bold;"><?php echo $selected_year; ?></span>
                             <button id="next_year" onclick="changeYear(<?php echo $selected_year + 1; ?>)">Next Year</button>
-                            <button id="download-pdf" data-id="<?php echo $normal_id; ?>" class="btn btn-danger">Download PDF</button>
+                            <!-- <button id="download-pdf" data-id="<?php echo $normal_id; ?>" class="btn btn-danger">Download PDF</button> -->
 
                         </div>
 
@@ -169,12 +169,12 @@ button#privious:hover{
     <?php include "footer_view.php"; ?>
 
 
-    <script>
+    <!-- <script>
     document.getElementById('download-pdf').addEventListener('click', function() {
         let normalId = this.getAttribute('data-id');
         window.location.href = 'export_to_pdf.php?normal_id=' + encodeURIComponent(normalId);
     });
-</script>
+</script> -->
 
 
 
