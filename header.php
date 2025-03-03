@@ -143,14 +143,6 @@ if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
           </li>
           <li class="nav-item nav-category">category</li>
 
-          <!-- <li class="nav-item">
-            <a class="nav-link"  href="#attendance-status" aria-expanded="false"
-              aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">My Pay Slips</span>
-            </a>
-          </li> -->
-
 <!-- 
           <li class="nav-item">
             <a class="nav-link"  href="#attendance-status" aria-expanded="false"
@@ -169,7 +161,13 @@ if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
             </a>
           </li>
 
-
+          <li class="nav-item">
+            <a class="nav-link"  href="pay-slip.php" aria-expanded="false"
+              aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">My Pay Slips</span>
+            </a>
+          </li>
 
 
         </ul>

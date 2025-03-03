@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2025 at 01:24 PM
+-- Generation Time: Mar 03, 2025 at 11:46 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -183,6 +183,35 @@ CREATE TABLE `employee_details` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `exit_office`
+--
+
+CREATE TABLE `exit_office` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `gender` varchar(50) NOT NULL,
+  `salary` decimal(10,2) NOT NULL,
+  `last_working_day` date NOT NULL,
+  `reason` text NOT NULL,
+  `other_reason` text DEFAULT NULL,
+  `salary_hold` enum('Yes','No') NOT NULL DEFAULT 'Yes',
+  `hr_approvel` enum('Accept','Not-Accept') NOT NULL DEFAULT 'Not-Accept',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `exit_office`
+--
+
+INSERT INTO `exit_office` (`id`, `user_id`, `name`, `designation`, `department`, `gender`, `salary`, `last_working_day`, `reason`, `other_reason`, `salary_hold`, `hr_approvel`, `created_at`) VALUES
+(8, 'VSM-BC6C4F', 'Keerthana N', 'Front end Developer', 'Developer', 'Female', 10000.00, '2025-05-02', 'Professional Growth', '', 'Yes', 'Not-Accept', '2025-03-03 10:42:55');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `manual_salary`
 --
 
@@ -295,7 +324,9 @@ INSERT INTO `releve_apply` (`id`, `user_id`, `name`, `join_date`, `apply_date`, 
 (17, 'VSM-22713F', 'Vasanthakumar K', '', '03-01-2025', '2025-01-03 11:22:28'),
 (18, 'VSM-22713F', 'Vasanthakumar K', '', '03-01-2025', '2025-01-03 11:23:04'),
 (19, 'VSM-22713F', 'Vasanthakumar K', '', '03-01-2025', '2025-01-03 11:41:29'),
-(20, 'VSM-85BDF4', 'Brintha R', '', '18-01-2025', '2025-01-18 10:26:19');
+(20, 'VSM-85BDF4', 'Brintha R', '', '18-01-2025', '2025-01-18 10:26:19'),
+(21, 'VSM-BC6C4F', 'Keerthana N', '', '03-03-2025', '2025-03-03 04:48:40'),
+(22, 'VSM-BC6C4F', 'Keerthana N', '', '03-03-2025', '2025-03-03 05:01:14');
 
 -- --------------------------------------------------------
 
@@ -391,7 +422,18 @@ CREATE TABLE `salary_details` (
 
 INSERT INTO `salary_details` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
 (163, 'VSM-BC6C4F', 'Jan', 2025, '0', 0, 0, 31, 28, 3, 0.00, 'paid'),
-(164, 'VSM-BC6C4F', 'Feb', 2025, '0', 0, 0, 28, 20, 8, 7142.86, 'paid');
+(164, 'VSM-BC6C4F', 'Feb', 2025, '0', 0, 0, 28, 20, 8, 7142.86, 'paid'),
+(165, 'VSM-C24AEE', 'Jan', 2025, '0', 0, 0, 31, 30, 1, 8709.68, 'paid'),
+(166, 'VSM-BC6C4F', 'Mar', 2025, '0', 0, 0, 31, 20, 11, 6451.61, 'paid'),
+(167, 'VSM-BC6C4F', 'Apr', 2025, '0', 0, 0, 30, 30, 0, 10000.00, 'paid'),
+(168, 'VSM-BC6C4F', 'May', 2025, '0', 0, 0, 31, 30, 1, 9677.42, 'paid'),
+(169, 'VSM-93ADCC', 'Jan', 2025, '0', 0, 0, 31, 30, 1, 8709.68, 'paid'),
+(170, 'VSM-93ADCC', 'Feb', 2025, '0', 0, 0, 28, 22, 6, 7071.43, 'paid'),
+(171, 'VSM-93ADCC', 'Mar', 2025, '0', 0, 0, 31, 30, 1, 8709.68, 'paid'),
+(172, 'VSM-BC6C4F', 'Jun', 2025, '0', 0, 0, 30, 30, 0, 10000.00, 'paid'),
+(173, 'VSM-BC6C4F', 'Jul', 2025, '0', 0, 0, 31, 30, 1, 9677.42, 'paid'),
+(174, 'VSM-BC6C4F', 'Aug', 2025, '0', 0, 0, 31, 31, 0, 10000.00, 'paid'),
+(175, 'VSM-BC6C4F', 'Sep', 2025, '0', 0, 0, 30, 29, 1, 9666.67, 'paid');
 
 -- --------------------------------------------------------
 
@@ -456,6 +498,15 @@ CREATE TABLE `vsm93adcc_salary` (
   `payment_status` varchar(50) NOT NULL DEFAULT 'Paid'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `vsm93adcc_salary`
+--
+
+INSERT INTO `vsm93adcc_salary` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
+(2, 'VSM-93ADCC', 'Jan', 2025, '0', 0.00, 0.00, 31, 30, 1, 8709.68, 'Paid'),
+(3, 'VSM-93ADCC', 'Feb', 2025, '0', 0.00, 0.00, 28, 22, 6, 7071.43, 'Paid'),
+(4, 'VSM-93ADCC', 'Mar', 2025, '0', 0.00, 0.00, 31, 30, 1, 8709.68, 'Paid');
+
 -- --------------------------------------------------------
 
 --
@@ -483,7 +534,14 @@ CREATE TABLE `vsmbc6c4f_salary` (
 
 INSERT INTO `vsmbc6c4f_salary` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
 (2, 'VSM-BC6C4F', 'Jan', 2025, '0', 0.00, 0.00, 31, 28, 3, 0.00, 'Paid'),
-(3, 'VSM-BC6C4F', 'Feb', 2025, '0', 0.00, 0.00, 28, 20, 8, 7142.86, 'Paid');
+(3, 'VSM-BC6C4F', 'Feb', 2025, '0', 0.00, 0.00, 28, 20, 8, 7142.86, 'Paid'),
+(4, 'VSM-BC6C4F', 'Mar', 2025, '0', 0.00, 0.00, 31, 20, 11, 6451.61, 'Paid'),
+(5, 'VSM-BC6C4F', 'Apr', 2025, '0', 0.00, 0.00, 30, 30, 0, 10000.00, 'Paid'),
+(6, 'VSM-BC6C4F', 'May', 2025, '0', 0.00, 0.00, 31, 30, 1, 9677.42, 'Paid'),
+(7, 'VSM-BC6C4F', 'Jun', 2025, '0', 0.00, 0.00, 30, 30, 0, 10000.00, 'Paid'),
+(8, 'VSM-BC6C4F', 'Jul', 2025, '0', 0.00, 0.00, 31, 30, 1, 9677.42, 'Paid'),
+(9, 'VSM-BC6C4F', 'Aug', 2025, '0', 0.00, 0.00, 31, 31, 0, 10000.00, 'Paid'),
+(10, 'VSM-BC6C4F', 'Sep', 2025, '0', 0.00, 0.00, 30, 29, 1, 9666.67, 'Paid');
 
 -- --------------------------------------------------------
 
@@ -542,6 +600,12 @@ ALTER TABLE `company_info`
 ALTER TABLE `employee_details`
   ADD PRIMARY KEY (`employee_id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `exit_office`
+--
+ALTER TABLE `exit_office`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `manual_salary`
@@ -638,6 +702,12 @@ ALTER TABLE `employee_details`
   MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `exit_office`
+--
+ALTER TABLE `exit_office`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `manual_salary`
 --
 ALTER TABLE `manual_salary`
@@ -653,7 +723,7 @@ ALTER TABLE `manual_update`
 -- AUTO_INCREMENT for table `releve_apply`
 --
 ALTER TABLE `releve_apply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `run_payslip`
@@ -665,7 +735,7 @@ ALTER TABLE `run_payslip`
 -- AUTO_INCREMENT for table `salary_details`
 --
 ALTER TABLE `salary_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
 -- AUTO_INCREMENT for table `vsm01f984_salary`
@@ -683,19 +753,19 @@ ALTER TABLE `vsm1d9a57_salary`
 -- AUTO_INCREMENT for table `vsm93adcc_salary`
 --
 ALTER TABLE `vsm93adcc_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `vsmbc6c4f_salary`
 --
 ALTER TABLE `vsmbc6c4f_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `vsmc24aee_salary`
 --
 ALTER TABLE `vsmc24aee_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

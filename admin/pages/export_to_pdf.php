@@ -60,7 +60,7 @@ $pending_advance_salary = $employee_data['gross_salary'] - $salary_data['advance
 $html = '
 <style>
     body { font-family: Arial, sans-serif; font-size: 12px; }
-    .header { text-align: center; font-size: 16px; font-weight: bold; padding: 10px; background-color: #008080; color: white; }
+    .header { text-align: center; font-size: 16px; font-weight: bold; padding: 10px; background-color:rgb(35, 89, 207); color: white; }
     .company-details { text-align: center; font-size: 12px; margin-bottom: 10px; }
     .company-logo { text-align: center; margin-bottom: 10px; }
     .section-title { font-size: 14px; font-weight: bold; background-color: #f2f2f2; padding: 5px; }
@@ -82,7 +82,7 @@ $html = '
 </div>
 
 <div  style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 20px;">
-    Payslip for ' . $salary_data['month'] . ' ' . $salary_data['year'] . '
+    Payslip for (' . $salary_data['month'] . '- ' . $salary_data['year'] . ')
 </div>
 
 <table class="table">

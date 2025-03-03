@@ -3,7 +3,7 @@
 $payroll_host = "localhost"; // Replace with the actual domain or IP
 $payroll_user = "root";
 $payroll_pass = "";
-$payroll_db = "payy";
+$payroll_db = "pay";
 
 $payroll_conn = new mysqli($payroll_host, $payroll_user, $payroll_pass, $payroll_db);
 if ($payroll_conn->connect_error) {
@@ -14,7 +14,7 @@ if ($payroll_conn->connect_error) {
 $servicedesk_host = "localhost"; // Replace with the actual domain or IP
 $servicedesk_user = "root";
 $servicedesk_pass = "";
-$servicedesk_db = "service_desk";
+$servicedesk_db = "test";
 
 $service_conn = new mysqli($servicedesk_host, $servicedesk_user, $servicedesk_pass, $servicedesk_db);
 if ($service_conn->connect_error) {
