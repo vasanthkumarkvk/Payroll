@@ -1,8 +1,5 @@
- 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -209,92 +206,74 @@
                 </button>
             </div>
         </nav>
-
-        <!-- end of header  -->
-
-
-        <!-- sidebar  -->
-        <!-- partial -->
+        <?php
+include "../database.php"; 
+// Fetch full-time employees
+$query = "SELECT employee_user_id, employee_name FROM run_payslip WHERE employee_type = 'full-time'";
+$result = mysqli_query($conn, $query);
+$employees = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $employees[] = $row;
+}
+?>
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
             <?php include "side_nav.php";?>
-
             <div class="main-panel">
                 <div class="content-wrapper">
-                <!-- <div class="col-sm-12"> -->
                 <div class="container">
-                    <!-- Content -->
-                    <!-- <main class="content"> -->
-                    <!-- Tabs -->
-                    <div class="tabs">
-                        <button class="tab-btn active" data-tab="new-advance">New Advance</button>
-                        <button class="tab-btn" data-tab="pending-request">Pending Requests</button>
-                    </div>
-                    <!-- <hr style="border: 1px solid black ; margin: 10px 0; "> -->
-
-
-                    <!-- New Advance Section -->
                     <div id="new-advance" class="tab-content active">
                         <h2>New Advance</h2>
-                        <form action="#" method="POST" class="advance-salary-form">
-                            <div class="form-group">
-                                <label for="employee-name">Employee Name</label>
-                                <input type="text" id="employee-name" name="employee-name"
-                                    placeholder="Enter employee name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="amount">Advance Amount</label>
-                                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="emi">EMI</label>
-                                <input type="number" id="emi" name="emi" placeholder="Enter EMI amount" required>
-                            </div>
+                   
+                        <form action="advance_add.php" method="POST" class="advance-salary-form">
+    <!-- Employee Name Dropdown -->
+    <div class="form-group">
+        <label for="employee_name">Employee Name</label>
+        <select id="employee_name" name="employee_name" required>
+            <option value="">Select Employee</option>
+            <?php foreach ($employees as $employee) { ?>
+                <option value="<?= $employee['employee_name'] ?>" data-user-id="<?= $employee['employee_user_id'] ?>">
+                    <?= $employee['employee_name'] ?>
+                </option>
+            <?php } ?>
+        </select>
+    </div>
 
-                            <!-- Employee Information Section -->
-                            <!-- <h3>Employee Information</h3> -->
-                            <div class="form-group">
-                                <label for="employee-id">Employee ID</label>
-                                <input type="text" id="employee-id" name="employee-id" placeholder="Enter Employee ID"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="date">Advance Date</label>
-                                <input type="date" id="date" style="cursor: pointer;" name="date"
-                                    placeholder="Choose Advance date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="salary">Salary</label>
-                                <input type="text" id="salary" name="salary" placeholder="Enter salary amount" required>
-                            </div>
+    <!-- Employee ID (Auto-filled) -->
+    <div class="form-group">
+        <label for="employee_id">Employee ID</label>
+        <input type="text" id="employee_id" name="employee_id" placeholder="Auto-filled Employee ID" readonly required>
+    </div>
 
-                            <div class="form-group">
-                                <button type="submit" class="btn-submit">Submit</button>
-                            </div>
-                        </form>
+    <div class="form-group">
+        <label for="amount">Advance Amount</label>
+        <input type="number" id="amount" name="advance_amount" placeholder="Enter amount" required>
+    </div>
+
+    <div class="form-group">
+        <label for="emi">Monthly EMI Amount</label>
+        <input type="number" id="emi" name="emi_amount" placeholder="Enter EMI amount" required>
+    </div>
+
+    <div class="form-group">
+        <label for="advance_date">Advance Date</label>
+        <input type="date" id="advance_date" name="starting_date" required>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn-submit">Submit</button>
+    </div>
+</form>
+
+<script>
+// Auto-fill Employee ID based on the selected Employee Name
+document.getElementById("employee_name").addEventListener("change", function () {
+    var selectedOption = this.options[this.selectedIndex];
+    document.getElementById("employee_id").value = selectedOption.getAttribute("data-user-id");
+});
+</script>
+
+
                     </div>
-                    <!-- End New Advance Section -->
-
-                    <!-- Pending Requests Section -->
-                    <div id="pending-request" class="tab-content">
-                        <h2>Pending Requests</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Employee ID</th>
-                                    <th>Employee Name</th>
-                                    <th>Advance Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Placeholder for pending requests -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End Pending Requests Section -->
-                    <!-- </main> -->
-                    <!-- End Content -->
                 </div>
                 </div>
             </div>
@@ -302,6 +281,8 @@
     </div>
     </div>
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         flatpickr("#date", {

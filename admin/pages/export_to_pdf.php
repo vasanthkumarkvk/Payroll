@@ -54,7 +54,7 @@ $company_phone = "+91-97909 73187";
 $company_email = " info@vsmglobaltechnologies.com";
 
 // Calculate Pending Advance Salary
-$pending_advance_salary = $employee_data['gross_salary'] - $salary_data['advance_amount'];
+$pending_advance_salary = $salary_data['advance_amount'] - $salary_data['emi_amount'] ;
 
 // HTML Structure with Inline CSS
 $html = '
