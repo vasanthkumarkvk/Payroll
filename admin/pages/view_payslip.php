@@ -474,7 +474,7 @@ function handlePaymentUpdate(employeeId, month, grossSalary) {
         })
         .catch(error => {
             console.error('Fetch Error:', error);
-            alert('Error connecting to the server. Check the console for details.');
+            // alert('Error connecting to the server. Check the console for details.');
         });
 }
 

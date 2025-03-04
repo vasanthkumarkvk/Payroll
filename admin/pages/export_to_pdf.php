@@ -53,10 +53,16 @@ $company_address = "5A, AGNI MAPLE, Pada Salai St, Nookampalayam, nagar, Perumba
 $company_phone = "+91-97909 73187";
 $company_email = " info@vsmglobaltechnologies.com";
 
-// Calculate Pending Advance Salary
 $pending_advance_salary = $salary_data['advance_amount'] - $salary_data['emi_amount'] ;
+$bonous_amount = "";
+$bonous_date = $employee_data['bonous_date'];
+$bonus_month = date("M", strtotime($bonous_date));
+if ($bonus_month === $month ) {
+    $bonous_amount = $employee_data['bonus'];
+} else {
+    $bonous_amount = 0;
+}
 
-// HTML Structure with Inline CSS
 $html = '
 <style>
     body { font-family: Arial, sans-serif; font-size: 12px; }
@@ -105,14 +111,16 @@ $html = '
     <tr>
         <th>Gross Salary</th>
         <th>Advance Salary</th>
+        <th>Bonous</th>
         <th>Pending Advance Salary</th>
         <th>Net Salary</th>
     </tr>
     <tr>
         <td>' . number_format($employee_data['gross_salary'], 2) . '</td>
         <td>' . number_format($salary_data['advance_amount'], 2) . '</td>
+        <td>' . $bonous_amount. '</td>
         <td>' . number_format($pending_advance_salary, 2) . '</td>
-        <td class="total">' . number_format($salary_data['net_salary'], 2) . '</td>
+        <td class="total">' . number_format($salary_data['net_salary']+ $bonous_amount, 2) . '</td>
     </tr>
 </table>
 ';

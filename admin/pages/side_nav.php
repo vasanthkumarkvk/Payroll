@@ -13,15 +13,15 @@
                 <span class="menu-title">People</span>
             </a>
         </li>
-        <li class="nav-item">  
+        <li class="nav-item">
             <a class="nav-link" href="all_employee.php">
-            <i class="menu-icon mdi mdi-wallet"></i>
-            <span class="menu-title">All Detilas</span>
+                <i class="menu-icon mdi mdi-wallet"></i>
+                <span class="menu-title">All Detilas</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="run_pay.php">
-            <i class="menu-icon mdi mdi-cash-multiple"></i> 
+                <i class="menu-icon mdi mdi-cash-multiple"></i>
                 <span class="menu-title">Run Payroll</span>
             </a>
         </li>
@@ -30,12 +30,12 @@
 
         <li class="nav-item">
             <a class="nav-link" href="advance_salary.php">
-            <i class="menu-icon mdi mdi-credit-card-plus"></i> <!-- Credit card plus icon for advance salary -->
+                <i class="menu-icon mdi mdi-credit-card-plus"></i> <!-- Credit card plus icon for advance salary -->
 
                 <span class="menu-title">Advance Salary</span>
             </a>
         </li>
-   
+
         <li class="nav-item">
             <a class="nav-link" href="report.php" aria-expanded="false" aria-controls="charts">
                 <i class="menu-icon mdi mdi-chart-bar"></i> <!-- Chart bar icon -->
@@ -49,7 +49,19 @@
                 <span class="menu-title">Company Details</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="employee_bonous.php" aria-expanded="false" aria-controls="charts">
+                <i class="menu-icon mdi mdi-cash-plus"></i> <!-- Bonus icon -->
+                <span class="menu-title">Employee Bonus</span>
+            </a>
+        </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="releave_applied.php" aria-expanded="false" aria-controls="charts">
+                <i class="menu-icon mdi mdi-exit-to-app"></i> <!-- Exit Employee icon -->
+                <span class="menu-title">Exit Employee</span>
+            </a>
+        </li>
 
     </ul>
 </nav>

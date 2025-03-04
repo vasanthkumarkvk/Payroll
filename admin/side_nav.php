@@ -49,6 +49,19 @@
                 <span class="menu-title">Company Details</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="pages/employee_bonous.php" aria-expanded="false" aria-controls="charts">
+                <i class="menu-icon mdi mdi-cash-plus"></i> <!-- Bonus icon -->
+                <span class="menu-title">Employee Bonus</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="pages/releave_applied.php" aria-expanded="false" aria-controls="charts">
+                <i class="menu-icon mdi mdi-exit-to-app"></i> <!-- Exit Employee icon -->
+                <span class="menu-title">Exit Employee</span>
+            </a>
+        </li>
 
 
     </ul>

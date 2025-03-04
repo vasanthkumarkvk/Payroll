@@ -1,0 +1,38 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* Optional: Adds some space for the border */
+    color: black; /* Initial text color */
+    text-decoration: none;
+    overflow: hidden; /* Ensures border stays inside the link */
+    font-weight: 600;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition for zoom and color */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; /* Border height */
+    background: linear-gradient(to right, transparent, rgb(0, 0, 0));
+    transform: scaleX(0); /* Start with no visible border */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out; /* Smooth border expansion */
+}
+
+.nav-link:hover {
+    transform: scale(1.1); /* Zoom in effect */
+    color: white; /* Change text color on hover (optional) */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Expand the border from left to right */
+}

@@ -34,13 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          AND employee_name = '$employee_name'";
 
         if (mysqli_query($conn, $update_query)) {
-            echo "<script>alert('Advance Salary Updated Successfully!'); window.location.href='your_page.php';</script>";
+            echo "<script>alert('Advance Salary Updated Successfully!'); window.location.href='../dashboard.php';</script>";
         } else {
             echo "<script>alert('Error updating record: " . mysqli_error($conn) . "');</script>";
         }
     } else {
         // If no existing record, do nothing
-        echo "<script>alert('No record found for this employee. No updates were made.'); window.location.href='your_page.php';</script>";
+        echo "<script>alert('No record found for this employee. No updates were made.'); window.location.href='../dashboard.php';</script>";
     }
 }
 

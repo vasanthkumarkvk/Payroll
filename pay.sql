@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2025 at 11:46 AM
+-- Generation Time: Mar 04, 2025 at 11:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -72,9 +72,9 @@ CREATE TABLE `advance_salary` (
 INSERT INTO `advance_salary` (`id`, `employee_name`, `advance_amount`, `emi_amount`, `employee_user_id`, `advance_date`, `salary`, `advance_month`, `advance_year`, `remaining_emi`, `created_at`) VALUES
 (37, 'john', '0', 0.00, 'VSM-22713F', '0000-00-00', '', 0, 0, NULL, '2025-01-02 09:02:31'),
 (39, 'venkatesh shanmugam', '0', 0.00, 'VSM-1D9A57', '0000-00-00', '', 0, 0, NULL, '2025-01-20 06:07:37'),
-(40, 'yuvarani', '0', 0.00, 'VSM-01F984', '0000-00-00', '', 0, 0, NULL, '2025-02-10 07:43:13'),
+(40, 'yuvarani', '2000', 1000.00, 'VSM-01F984', '2025-03-05', '', 3, 2025, 2.00, '2025-03-04 10:24:23'),
 (41, 'Keerthana N', '0', 0.00, 'VSM-BC6C4F', '0000-00-00', '', 0, 0, NULL, '2025-02-13 07:36:15'),
-(42, 'Veenabai S', '0', 0.00, 'VSM-C24AEE', '0000-00-00', '', 0, 0, NULL, '2025-02-17 12:48:28'),
+(42, 'Veenabai S', '0', 0.00, 'VSM-C24AEE', '0000-00-00', '', 0, 0, 0.00, '2025-03-04 07:20:12'),
 (43, 'B.Ramesh', '0', 0.00, 'VSM-93ADCC', '0000-00-00', '', 0, 0, NULL, '2025-02-26 06:43:37'),
 (45, 'Keerthana', '0', 0.00, 'VSM-BC6C4F', '0000-00-00', '', 0, 0, NULL, '2025-02-26 11:27:57');
 
@@ -202,13 +202,6 @@ CREATE TABLE `exit_office` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `exit_office`
---
-
-INSERT INTO `exit_office` (`id`, `user_id`, `name`, `designation`, `department`, `gender`, `salary`, `last_working_day`, `reason`, `other_reason`, `salary_hold`, `hr_approvel`, `created_at`) VALUES
-(8, 'VSM-BC6C4F', 'Keerthana N', 'Front end Developer', 'Developer', 'Female', 10000.00, '2025-05-02', 'Professional Growth', '', 'Yes', 'Not-Accept', '2025-03-03 10:42:55');
-
 -- --------------------------------------------------------
 
 --
@@ -316,18 +309,6 @@ CREATE TABLE `releve_apply` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `releve_apply`
---
-
-INSERT INTO `releve_apply` (`id`, `user_id`, `name`, `join_date`, `apply_date`, `created_at`) VALUES
-(17, 'VSM-22713F', 'Vasanthakumar K', '', '03-01-2025', '2025-01-03 11:22:28'),
-(18, 'VSM-22713F', 'Vasanthakumar K', '', '03-01-2025', '2025-01-03 11:23:04'),
-(19, 'VSM-22713F', 'Vasanthakumar K', '', '03-01-2025', '2025-01-03 11:41:29'),
-(20, 'VSM-85BDF4', 'Brintha R', '', '18-01-2025', '2025-01-18 10:26:19'),
-(21, 'VSM-BC6C4F', 'Keerthana N', '', '03-03-2025', '2025-03-03 04:48:40'),
-(22, 'VSM-BC6C4F', 'Keerthana N', '', '03-03-2025', '2025-03-03 05:01:14');
-
 -- --------------------------------------------------------
 
 --
@@ -362,6 +343,7 @@ CREATE TABLE `run_payslip` (
   `gender` enum('Male','Female','Other') DEFAULT NULL,
   `phone_number` varchar(15) DEFAULT NULL,
   `bonus` decimal(10,2) DEFAULT NULL,
+  `bonous_date` date NOT NULL,
   `employee_type` varchar(50) NOT NULL DEFAULT 'Full-time',
   `qualifications` varchar(255) DEFAULT NULL,
   `resigned_date` date DEFAULT NULL,
@@ -378,22 +360,22 @@ CREATE TABLE `run_payslip` (
 -- Dumping data for table `run_payslip`
 --
 
-INSERT INTO `run_payslip` (`id`, `employee_user_id`, `employee_name`, `gross_salary`, `total_compensation`, `availability_days`, `email`, `designation`, `pay_month`, `pay_year`, `created_at`, `hire_date`, `job_title`, `department`, `manager`, `location`, `salary`, `annual_salary`, `ifsc_number`, `bank_name`, `branch_name`, `account_number`, `account_type`, `dob`, `gender`, `phone_number`, `bonus`, `employee_type`, `qualifications`, `resigned_date`, `degree_certificate`, `experiance_certificate`, `course_certificate`, `advance_amount`, `emi_amount`, `advance_date`, `conformation_process`) VALUES
-(16, 'V0720227', 'Angalaeswari', 8000.00, NULL, NULL, 'angalaeswari@vsmglobaltechnologies.com', 'It analyst', 0, 0, '2024-11-05 11:24:23', '2022-07-04', NULL, 'it_operations', NULL, NULL, NULL, NULL, 'none', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, 'Dismissed', 'no', '2022-12-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 'V0220238', 'Latha Gokulnath', 10000.00, NULL, NULL, 'latha@vsmglobaltechnologies.com', 'Senior specialist', 0, 0, '2024-11-05 11:27:53', '2023-02-01', NULL, 'it_operations', NULL, NULL, NULL, NULL, 'no', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, 'Dismissed', 'no', '2023-08-08', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(18, 'V0620239', 'Suganya', 8000.00, NULL, NULL, 'suganya@vsmglobaltechnologies.com', 'Business development management specialist', 0, 0, '2024-11-05 11:35:19', '2023-06-21', NULL, 'marketing & Sales', NULL, NULL, NULL, NULL, 'no', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, 'Dismissed', 'no', '2023-07-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 'V1020239', 'Muthulakshmi', 12000.00, NULL, NULL, 'muthulakshmi@vsmglobaltechnologies.com', 'Developer', 0, 0, '2024-11-05 11:40:10', '2023-10-04', NULL, 'development', NULL, NULL, NULL, NULL, 'no', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, 'Dismissed', 'no', '2024-01-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 'V08202310', 'Jeya Eswari Vivek', 9000.00, NULL, NULL, 'jeyaeswarivivek@vsmglobaltechnologies.com', 'Business development management specialist', 0, 0, '2024-11-05 11:42:49', '2023-08-17', NULL, 'research_development', NULL, NULL, NULL, NULL, 'no', 'no', 'no', '', '', '1990-10-10', 'Female', 'no', NULL, 'Dismissed', 'no', '2024-02-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 'V12202311', 'Jeevitha', 15000.00, NULL, NULL, 'jeevitha@vsmglobaltechnologies.com', 'Graphic Designer', 0, 0, '2024-11-05 11:44:46', '2023-12-01', NULL, 'design', NULL, NULL, NULL, NULL, '', '', '', '', '', '1990-10-10', 'Female', 'no', NULL, 'Dismissed', 'no', '2024-06-29', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(22, 'V01202412', 'Ajay Kumar', 9000.00, NULL, NULL, 'ajaykumar@vsmglobaltechnologies.com', 'Developer', 0, 0, '2024-11-05 11:47:08', '2024-01-06', NULL, 'development', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Male', 'no', NULL, 'Dismissed', '', '2024-06-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(23, 'V05202413', 'Dhanalakshmi', 9000.00, NULL, NULL, 'dhanalakshmi@vsmglobaltechnologies.com', 'contract-support', 0, 0, '2024-11-05 11:48:20', '2024-05-01', NULL, 'research_development', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Female', 'no', NULL, 'Contract', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(24, 'V09202414', 'Neena PS', 9000.00, NULL, NULL, 'neenaps@vsmglobaltechnologies.com', 'contract- support ', 0, 0, '2024-11-05 11:50:17', '2024-09-01', NULL, 'research_development', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Female', 'no', NULL, 'Dismissed', '', '2024-10-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(25, 'V06202315', 'Anitha', 18000.00, NULL, NULL, 'anitha@vsmglobaltechnologies.com', 'Marketing Manager', 0, 0, '2024-11-05 11:52:51', '2023-06-08', NULL, 'marketing & Sales', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Female', 'no', NULL, 'Dismissed', '', '2023-07-08', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(64, 'VSM-1D9A57', 'venkatesh shanmugam', 9000.00, NULL, NULL, 'venkateshseenu9047@gmail.com', NULL, 0, 0, '2025-01-20 06:07:37', NULL, NULL, NULL, NULL, '21th jeevanantham street chengam 606701', NULL, NULL, 'BARB0KKNAGA', 'BANK OF BARODA', NULL, '18850100022313', NULL, '2001-03-24', 'Male', '9080131768', NULL, 'Dismissed', NULL, NULL, 'uploads/1737353656_venkatesh-degree.jpg', 'uploads/1737353656_Venkat Exp letter.pdf', NULL, NULL, NULL, NULL, '1'),
-(65, 'VSM-01F984', 'yuvarani', 9000.00, NULL, NULL, 'Yuvarani@vsmglobaltechnologies.com', NULL, 0, 0, '2025-02-10 07:43:13', NULL, NULL, NULL, NULL, 'No8, nesamani nagar, ambedkar street, perumpakkam, chennai, 605110.', NULL, NULL, '', '', NULL, '', NULL, '1996-06-02', 'Female', '7092519767', NULL, 'Full-time', NULL, NULL, 'uploads/1739442108_Degree UV.pdf', NULL, NULL, NULL, NULL, NULL, '1'),
-(67, 'VSM-C24AEE', 'Veenabai S', 9000.00, NULL, NULL, 'veenabais2002@gmail.com', NULL, 0, 0, '2025-02-17 12:48:28', NULL, NULL, NULL, NULL, 'Jsk hostel, Sholinganallur, chennai, Tamilnadu', NULL, NULL, 'HDFC0001852', 'HDFC Bank', NULL, '50100724063768', NULL, '2002-08-28', 'Female', '6381165177', NULL, 'Full-time', NULL, NULL, 'uploads/1739796629_semester marksheet.pdf', NULL, NULL, NULL, NULL, NULL, '1'),
-(68, 'VSM-93ADCC', 'B.Ramesh', 9000.00, NULL, NULL, 'ramesh.ramesh997@gmail.com', NULL, 0, 0, '2025-02-26 06:43:37', NULL, NULL, NULL, NULL, 'Plot no:- 5, VIGNESHWARA NAGAR, East Coast Rd, OMR, Sholinganallur, Chennai, Tamil Nadu 600119', NULL, NULL, 'ICIC0000073', 'ICICI', NULL, '007301582975', NULL, '1994-12-09', 'Male', '9701075876', NULL, 'Full-time', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(69, 'VSM-BC6C4F', 'Keerthana', 10000.00, 0.00, NULL, 'bdm@vsmglobaltechnologies.com', 'Front end Developer', 0, 0, '2025-02-26 11:27:57', '2025-02-25', NULL, 'Developer', 'Valarmathi', 'test', NULL, NULL, '00', '00', NULL, '00', NULL, '2001-02-06', 'Female', '8887876876', 0.00, 'Full-time', NULL, NULL, 'uploads/1740569300_Untitled design (76).png', 'uploads/1740569300_Untitled design (76).png', 'uploads/1740569300_Untitled design (76).png', NULL, NULL, NULL, '1');
+INSERT INTO `run_payslip` (`id`, `employee_user_id`, `employee_name`, `gross_salary`, `total_compensation`, `availability_days`, `email`, `designation`, `pay_month`, `pay_year`, `created_at`, `hire_date`, `job_title`, `department`, `manager`, `location`, `salary`, `annual_salary`, `ifsc_number`, `bank_name`, `branch_name`, `account_number`, `account_type`, `dob`, `gender`, `phone_number`, `bonus`, `bonous_date`, `employee_type`, `qualifications`, `resigned_date`, `degree_certificate`, `experiance_certificate`, `course_certificate`, `advance_amount`, `emi_amount`, `advance_date`, `conformation_process`) VALUES
+(16, 'V0720227', 'Angalaeswari', 8000.00, NULL, NULL, 'angalaeswari@vsmglobaltechnologies.com', 'It analyst', 0, 0, '2024-11-05 11:24:23', '2022-07-04', NULL, 'it_operations', NULL, NULL, NULL, NULL, 'none', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', 'no', '2022-12-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'V0220238', 'Latha Gokulnath', 10000.00, NULL, NULL, 'latha@vsmglobaltechnologies.com', 'Senior specialist', 0, 0, '2024-11-05 11:27:53', '2023-02-01', NULL, 'it_operations', NULL, NULL, NULL, NULL, 'no', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', 'no', '2023-08-08', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'V0620239', 'Suganya', 8000.00, NULL, NULL, 'suganya@vsmglobaltechnologies.com', 'Business development management specialist', 0, 0, '2024-11-05 11:35:19', '2023-06-21', NULL, 'marketing & Sales', NULL, NULL, NULL, NULL, 'no', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', 'no', '2023-07-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 'V1020239', 'Muthulakshmi', 12000.00, NULL, NULL, 'muthulakshmi@vsmglobaltechnologies.com', 'Developer', 0, 0, '2024-11-05 11:40:10', '2023-10-04', NULL, 'development', NULL, NULL, NULL, NULL, 'no', 'no', 'no', 'no', 'no', '1990-10-10', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', 'no', '2024-01-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'V08202310', 'Jeya Eswari Vivek', 9000.00, NULL, NULL, 'jeyaeswarivivek@vsmglobaltechnologies.com', 'Business development management specialist', 0, 0, '2024-11-05 11:42:49', '2023-08-17', NULL, 'research_development', NULL, NULL, NULL, NULL, 'no', 'no', 'no', '', '', '1990-10-10', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', 'no', '2024-02-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 'V12202311', 'Jeevitha', 15000.00, NULL, NULL, 'jeevitha@vsmglobaltechnologies.com', 'Graphic Designer', 0, 0, '2024-11-05 11:44:46', '2023-12-01', NULL, 'design', NULL, NULL, NULL, NULL, '', '', '', '', '', '1990-10-10', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', 'no', '2024-06-29', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 'V01202412', 'Ajay Kumar', 9000.00, NULL, NULL, 'ajaykumar@vsmglobaltechnologies.com', 'Developer', 0, 0, '2024-11-05 11:47:08', '2024-01-06', NULL, 'development', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Male', 'no', NULL, '0000-00-00', 'Dismissed', '', '2024-06-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 'V05202413', 'Dhanalakshmi', 9000.00, NULL, NULL, 'dhanalakshmi@vsmglobaltechnologies.com', 'contract-support', 0, 0, '2024-11-05 11:48:20', '2024-05-01', NULL, 'research_development', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Female', 'no', NULL, '0000-00-00', 'Contract', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 'V09202414', 'Neena PS', 9000.00, NULL, NULL, 'neenaps@vsmglobaltechnologies.com', 'contract- support ', 0, 0, '2024-11-05 11:50:17', '2024-09-01', NULL, 'research_development', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', '', '2024-10-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 'V06202315', 'Anitha', 18000.00, NULL, NULL, 'anitha@vsmglobaltechnologies.com', 'Marketing Manager', 0, 0, '2024-11-05 11:52:51', '2023-06-08', NULL, 'marketing & Sales', NULL, NULL, NULL, NULL, '', '', '', '', '', '0000-00-00', 'Female', 'no', NULL, '0000-00-00', 'Dismissed', '', '2023-07-08', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(64, 'VSM-1D9A57', 'venkatesh shanmugam', 9000.00, NULL, NULL, 'venkateshseenu9047@gmail.com', NULL, 0, 0, '2025-01-20 06:07:37', NULL, NULL, NULL, NULL, '21th jeevanantham street chengam 606701', NULL, NULL, 'BARB0KKNAGA', 'BANK OF BARODA', NULL, '18850100022313', NULL, '2001-03-24', 'Male', '9080131768', NULL, '0000-00-00', 'Dismissed', NULL, NULL, 'uploads/1737353656_venkatesh-degree.jpg', 'uploads/1737353656_Venkat Exp letter.pdf', NULL, NULL, NULL, NULL, '1'),
+(65, 'VSM-01F984', 'yuvarani', 9000.00, NULL, NULL, 'Yuvarani@vsmglobaltechnologies.com', NULL, 0, 0, '2025-02-10 07:43:13', NULL, NULL, NULL, NULL, 'No8, nesamani nagar, ambedkar street, perumpakkam, chennai, 605110.', NULL, NULL, '', '', NULL, '', NULL, '1996-06-02', 'Female', '7092519767', 2000.00, '2025-04-05', 'Full-time', NULL, NULL, 'uploads/1739442108_Degree UV.pdf', NULL, NULL, NULL, NULL, NULL, '1'),
+(67, 'VSM-C24AEE', 'Veenabai S', 9000.00, NULL, NULL, 'veenabais2002@gmail.com', NULL, 0, 0, '2025-02-17 12:48:28', NULL, NULL, NULL, NULL, 'Jsk hostel, Sholinganallur, chennai, Tamilnadu', NULL, NULL, 'HDFC0001852', 'HDFC Bank', NULL, '50100724063768', NULL, '2002-08-28', 'Female', '6381165177', NULL, '0000-00-00', 'Full-time', NULL, NULL, 'uploads/1739796629_semester marksheet.pdf', NULL, NULL, NULL, NULL, NULL, '1'),
+(68, 'VSM-93ADCC', 'B.Ramesh', 9000.00, NULL, NULL, 'ramesh.ramesh997@gmail.com', NULL, 0, 0, '2025-02-26 06:43:37', NULL, NULL, NULL, NULL, 'Plot no:- 5, VIGNESHWARA NAGAR, East Coast Rd, OMR, Sholinganallur, Chennai, Tamil Nadu 600119', NULL, NULL, 'ICIC0000073', 'ICICI', NULL, '007301582975', NULL, '1994-12-09', 'Male', '9701075876', NULL, '0000-00-00', 'Full-time', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(69, 'VSM-BC6C4F', 'Keerthana', 10000.00, 0.00, NULL, 'bdm@vsmglobaltechnologies.com', 'Front end Developer', 0, 0, '2025-02-26 11:27:57', '2025-02-25', NULL, 'Developer', 'Valarmathi', 'test', NULL, NULL, '00', '00', NULL, '00', NULL, '2001-02-06', 'Female', '8887876876', NULL, '0000-00-00', 'Full-time', NULL, NULL, 'uploads/1740569300_Untitled design (76).png', 'uploads/1740569300_Untitled design (76).png', 'uploads/1740569300_Untitled design (76).png', '', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -421,19 +403,11 @@ CREATE TABLE `salary_details` (
 --
 
 INSERT INTO `salary_details` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
-(163, 'VSM-BC6C4F', 'Jan', 2025, '0', 0, 0, 31, 28, 3, 0.00, 'paid'),
-(164, 'VSM-BC6C4F', 'Feb', 2025, '0', 0, 0, 28, 20, 8, 7142.86, 'paid'),
-(165, 'VSM-C24AEE', 'Jan', 2025, '0', 0, 0, 31, 30, 1, 8709.68, 'paid'),
-(166, 'VSM-BC6C4F', 'Mar', 2025, '0', 0, 0, 31, 20, 11, 6451.61, 'paid'),
-(167, 'VSM-BC6C4F', 'Apr', 2025, '0', 0, 0, 30, 30, 0, 10000.00, 'paid'),
-(168, 'VSM-BC6C4F', 'May', 2025, '0', 0, 0, 31, 30, 1, 9677.42, 'paid'),
-(169, 'VSM-93ADCC', 'Jan', 2025, '0', 0, 0, 31, 30, 1, 8709.68, 'paid'),
-(170, 'VSM-93ADCC', 'Feb', 2025, '0', 0, 0, 28, 22, 6, 7071.43, 'paid'),
-(171, 'VSM-93ADCC', 'Mar', 2025, '0', 0, 0, 31, 30, 1, 8709.68, 'paid'),
-(172, 'VSM-BC6C4F', 'Jun', 2025, '0', 0, 0, 30, 30, 0, 10000.00, 'paid'),
-(173, 'VSM-BC6C4F', 'Jul', 2025, '0', 0, 0, 31, 30, 1, 9677.42, 'paid'),
-(174, 'VSM-BC6C4F', 'Aug', 2025, '0', 0, 0, 31, 31, 0, 10000.00, 'paid'),
-(175, 'VSM-BC6C4F', 'Sep', 2025, '0', 0, 0, 30, 29, 1, 9666.67, 'paid');
+(190, 'VSM-01F984', 'Jan', 2025, '0', 0, 0, 31, 31, 0, 9000.00, 'paid'),
+(191, 'VSM-01F984', 'Feb', 2025, '0', 0, 0, 28, 27, 1, 8678.57, 'paid'),
+(192, 'VSM-01F984', 'Mar', 2025, '0', 2000, 1000, 31, 30, 1, 7709.68, 'paid'),
+(193, 'VSM-01F984', 'Apr', 2025, '0', 1000, 1000, 30, 29, 1, 7700.00, 'paid'),
+(194, 'VSM-01F984', 'May', 2025, '0', 0, 0, 31, 29, 2, 8419.35, 'paid');
 
 -- --------------------------------------------------------
 
@@ -455,6 +429,17 @@ CREATE TABLE `vsm01f984_salary` (
   `net_salary` decimal(10,2) NOT NULL,
   `payment_status` varchar(50) NOT NULL DEFAULT 'Paid'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `vsm01f984_salary`
+--
+
+INSERT INTO `vsm01f984_salary` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
+(15, 'VSM-01F984', 'Jan', 2025, '0', 0.00, 0.00, 31, 31, 0, 9000.00, 'Paid'),
+(16, 'VSM-01F984', 'Feb', 2025, '0', 0.00, 0.00, 28, 27, 1, 8678.57, 'Paid'),
+(17, 'VSM-01F984', 'Mar', 2025, '0', 2000.00, 1000.00, 31, 30, 1, 7709.68, 'Paid'),
+(18, 'VSM-01F984', 'Apr', 2025, '0', 1000.00, 1000.00, 30, 29, 1, 7700.00, 'Paid'),
+(19, 'VSM-01F984', 'May', 2025, '0', 0.00, 0.00, 31, 29, 2, 8419.35, 'Paid');
 
 -- --------------------------------------------------------
 
@@ -498,15 +483,6 @@ CREATE TABLE `vsm93adcc_salary` (
   `payment_status` varchar(50) NOT NULL DEFAULT 'Paid'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `vsm93adcc_salary`
---
-
-INSERT INTO `vsm93adcc_salary` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
-(2, 'VSM-93ADCC', 'Jan', 2025, '0', 0.00, 0.00, 31, 30, 1, 8709.68, 'Paid'),
-(3, 'VSM-93ADCC', 'Feb', 2025, '0', 0.00, 0.00, 28, 22, 6, 7071.43, 'Paid'),
-(4, 'VSM-93ADCC', 'Mar', 2025, '0', 0.00, 0.00, 31, 30, 1, 8709.68, 'Paid');
-
 -- --------------------------------------------------------
 
 --
@@ -527,21 +503,6 @@ CREATE TABLE `vsmbc6c4f_salary` (
   `net_salary` decimal(10,2) NOT NULL,
   `payment_status` varchar(50) NOT NULL DEFAULT 'Paid'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `vsmbc6c4f_salary`
---
-
-INSERT INTO `vsmbc6c4f_salary` (`id`, `employee_id`, `month`, `year`, `gross_salary`, `advance_amount`, `emi_amount`, `total_days`, `present_days`, `absent_days`, `net_salary`, `payment_status`) VALUES
-(2, 'VSM-BC6C4F', 'Jan', 2025, '0', 0.00, 0.00, 31, 28, 3, 0.00, 'Paid'),
-(3, 'VSM-BC6C4F', 'Feb', 2025, '0', 0.00, 0.00, 28, 20, 8, 7142.86, 'Paid'),
-(4, 'VSM-BC6C4F', 'Mar', 2025, '0', 0.00, 0.00, 31, 20, 11, 6451.61, 'Paid'),
-(5, 'VSM-BC6C4F', 'Apr', 2025, '0', 0.00, 0.00, 30, 30, 0, 10000.00, 'Paid'),
-(6, 'VSM-BC6C4F', 'May', 2025, '0', 0.00, 0.00, 31, 30, 1, 9677.42, 'Paid'),
-(7, 'VSM-BC6C4F', 'Jun', 2025, '0', 0.00, 0.00, 30, 30, 0, 10000.00, 'Paid'),
-(8, 'VSM-BC6C4F', 'Jul', 2025, '0', 0.00, 0.00, 31, 30, 1, 9677.42, 'Paid'),
-(9, 'VSM-BC6C4F', 'Aug', 2025, '0', 0.00, 0.00, 31, 31, 0, 10000.00, 'Paid'),
-(10, 'VSM-BC6C4F', 'Sep', 2025, '0', 0.00, 0.00, 30, 29, 1, 9666.67, 'Paid');
 
 -- --------------------------------------------------------
 
@@ -681,7 +642,7 @@ ALTER TABLE `admin_login`
 -- AUTO_INCREMENT for table `advance_salary`
 --
 ALTER TABLE `advance_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `approvals`
@@ -723,7 +684,7 @@ ALTER TABLE `manual_update`
 -- AUTO_INCREMENT for table `releve_apply`
 --
 ALTER TABLE `releve_apply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `run_payslip`
@@ -735,13 +696,13 @@ ALTER TABLE `run_payslip`
 -- AUTO_INCREMENT for table `salary_details`
 --
 ALTER TABLE `salary_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 
 --
 -- AUTO_INCREMENT for table `vsm01f984_salary`
 --
 ALTER TABLE `vsm01f984_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `vsm1d9a57_salary`
@@ -765,7 +726,7 @@ ALTER TABLE `vsmbc6c4f_salary`
 -- AUTO_INCREMENT for table `vsmc24aee_salary`
 --
 ALTER TABLE `vsmc24aee_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
