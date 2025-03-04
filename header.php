@@ -1,7 +1,6 @@
-
-<?php  
+<?php
 session_start();
-if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
+if (isset($_SESSION['name']) && isset($_SESSION['user_email'])) {
   // Assign session variables to local variables
   $user_name = $_SESSION['name'];
   $email = $_SESSION['user_email'];
@@ -62,23 +61,22 @@ if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item fw-semibold d-none d-lg-block ms-0">
-            <?php 
-            
+            <?php
+
             date_default_timezone_set("Asia/kolkata");
 
-            $current_hour = date("H"); 
-            if($current_hour >= 5 && $current_hour < 12){
+            $current_hour = date("H");
+            if ($current_hour >= 5 && $current_hour < 12) {
               $greeting = "Good Morning";
-            }
-            elseif($current_hour >= 12 && $current_hour < 18){
+            } elseif ($current_hour >= 12 && $current_hour < 18) {
               $greeting = "Good Afternoon";
-
-            }else{
+            } else {
               $greeting = "Good Evening";
             }
             ?>
-            <h1 class="welcome-text"><?php  echo $greeting;  ?>, <span class="text-black fw-bold"><?php  echo $user_name; ?></span></h1>
-            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+            <h1 class="welcome-text"><?php echo $greeting;  ?>, <span class="text-black fw-bold"><?php echo $user_name; ?></span></h1>
+            <span id="countdown" style="font-size: 14px; font-weight: bold; color: red;"></span>
+
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -91,17 +89,13 @@ if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
               <input type="text" class="form-control">
             </div>
           </li>
-
-
-
-
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="mdi mdi-account-circle text-primary img-xs rounded-circle"></i> <!-- User icon here -->
+              <i class="mdi mdi-account-circle text-primary img-xs rounded-circle"></i> <!-- User icon here -->
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <p class="fw-light text-muted mb-0"><?php echo $email ;  ?></p>
+                <p class="fw-light text-muted mb-0"><?php echo $email;  ?></p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
                 Profile <span class="badge badge-pill badge-danger">1</span></a>
@@ -114,10 +108,6 @@ if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
               <a class="dropdown-item" href="logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
-
-
-
-
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
           data-bs-toggle="offcanvas">
@@ -143,32 +133,69 @@ if(isset($_SESSION['name']) && isset($_SESSION['user_email'])){
           </li>
           <li class="nav-item nav-category">category</li>
 
-<!-- 
-          <li class="nav-item">
-            <a class="nav-link"  href="#attendance-status" aria-expanded="false"
-              aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Attendance Status</span>
-            </a>
-          </li> -->
-
 
           <li class="nav-item">
-            <a class="nav-link"  href="e_details.php" aria-expanded="false"
+            <a class="nav-link" href="e_details.php" aria-expanded="false"
               aria-controls="charts">
               <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title" >My Details</span>
+              <span class="menu-title">My Details</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link"  href="pay-slip.php" aria-expanded="false"
+            <a class="nav-link" href="pay-slip.php" aria-expanded="false"
               aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">My Pay Slips</span>
             </a>
           </li>
 
-
+          <?php
+          include 'db.php';
+          $sql = "SELECT last_working_day FROM exit_office WHERE name = ?";
+          $stmt = $payroll_conn->prepare($sql);
+          $stmt->bind_param("s", $user_name);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          $row = $result->fetch_assoc();
+          if ($row && !empty($row['last_working_day'])) {
+            $notice_end_date = $row['last_working_day'];
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="releve.php" style="color: red;" aria-expanded="false" aria-controls="ui-basic">
+                <i class="menu-icon mdi mdi-update"></i>
+                <span class="menu-title">Releving Update</span>
+              </a>
+            </li>
+          <?php
+          }
+          ?>
         </ul>
       </nav>
+
+      <script>
+        function startCountdown(endTime) {
+          function updateTimer() {
+            const now = new Date().getTime();
+            const distance = new Date(endTime).getTime() - now;
+
+            if (distance <= 0) {
+              document.getElementById("countdown").innerHTML = "Notice period ended!";
+              return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `Time Left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+          }
+
+          updateTimer(); // Run once immediately
+          setInterval(updateTimer, 1000); // Update every second
+        }
+
+        // Start the countdown using pre-stored notice end date
+        startCountdown("<?php echo $notice_end_date; ?>");
+      </script>
